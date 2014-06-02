@@ -1,11 +1,11 @@
 # About
 
-This is collection of scripts to automate building process of PlaneShift 3D fantasy MMORPG client
-on latest Linux Mint Debian Editon (LMDE). I hope with very small adjustments it should work on other Debian distributives / derivatives.
+This is collection of scripts to automate building process of [PlaneShift](http://www.planeshift.it) 3D fantasy MMORPG client
+on latest [Linux Mint Debian Editon](http://www.linuxmint.com/download_lmde.php) (LMDE). I hope with very small adjustments it should work on other Debian distributives / derivatives.
 
 # Why build?
 
-PlaneShift team provides static client for Linux, both x86 and x86_64 platforms, but making self-made client provides some advantages:
+PlaneShift team provides [static client for Linux](http://www.planeshift.it/Download), both x86 and x86_64 platforms, but making self-made client provides some advantages:
 
 * Somethat higher FPS / smoother gameplay that with static client
 * Ability to test recent code changes (and also encounter recently added bugs)
@@ -16,7 +16,7 @@ PlaneShift team provides static client for Linux, both x86 and x86_64 platforms,
 
 ## Download and configure
 
-Download build scripts release package and unpack it. Then open ps-params.sh and modify environment variables by your preference:
+Download build scripts [release package](https://github.com/roman-yagodin/PlaneShift.BuildScripts/releases) and unpack it. Then open `ps-params.sh` and modify environment variables by your preference:
 
 * First of, you should set PS_BUILD variable to development directory - there all sources will be downloaded, 
 compiled and installed locally. 
@@ -26,7 +26,7 @@ so second important thing is to specify this location in PS_RELEASE variable.
 
 * Third important variable is GCC_NEW, which must be set to newest gcc/g++ (GNU C/C++ compiler) version installed on your machine.
 
-<pre>
+```Shell
 # path to the development directory
 PS_BUILD="$HOME/build/planeshift"
 
@@ -44,7 +44,7 @@ GCC_OLD=4.6
 
 # "New" gcc version - your system's latest gcc version 
 GCC_NEW=4.8
-</pre>
+```
 
 ## Prepare for build
 
@@ -59,7 +59,7 @@ Run following script to build Bullet, Cal3D and then CrystalSpace 3D:
 2. ./ps-build-cal3d.sh [-u]
 3. ./ps-build-cs.sh [-u]
 
-If optional -u switch specified, script updates source from repository, discarding all changes made in local files. 
+If optional <code>-u</code> switch specified, script updates source from repository, discarding all changes made in local files. 
 If you encounter problems on any step, you should fix them before going further. 
 
 Building CS require gcc 4.6, so ps-build-cs.sh script asks for superuser privilegies to switch gcc alternatives.
@@ -84,10 +84,10 @@ Run ./psclient.sh or use shortcut named "PlaneShift (compiled)" in the applicati
 
 Just run: 
 
-<pre>
+```Shell
 ./ps-build-client.sh -u 
 ./ps-setup-client.sh
-</pre>
+```
 
 # TODO
 
@@ -98,6 +98,4 @@ Just run:
 # Contributions
 
 Please let me know if these scripts are working (or not working) in your environment - 
-add new issue using this project's issue tracker, describe your build environment, build errors, etc.
- 
-
+[add new issue](https://github.com/roman-yagodin/PlaneShift.BuildScripts/issues) using this project's issue tracker, describe your build environment, build errors, etc.
