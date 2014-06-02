@@ -66,7 +66,9 @@ Building CS require gcc 4.6, so `ps-build-cs.sh` script asks for superuser privi
 
 ## Build client
 
-To build client, disabling breakpad before, run `./ps-build-client.sh [-u]`
+To build client, run `./ps-build-client.sh [-u]`
+
+This script disables breakpad in source code before build.
 
 ## Setup client
 
