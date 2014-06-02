@@ -1,7 +1,7 @@
 # About
 
 This is collection of scripts to automate building process of [PlaneShift](http://www.planeshift.it) 3D fantasy MMORPG client
-on latest [Linux Mint Debian Editon](http://www.linuxmint.com/download_lmde.php) (LMDE). I hope with very small adjustments it should work on other Debian distributives / derivatives.
+on latest [Linux Mint Debian Editon](http://www.linuxmint.com/download_lmde.php) (LMDE). I hope with very small adjustments it should work on other Debian distributions / derivatives and Linux in common.
 
 # Why build?
 
