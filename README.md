@@ -9,7 +9,7 @@ PlaneShift team provides [static client for Linux](http://www.planeshift.it/Down
 
 * Somethat higher FPS / smoother gameplay that with static client
 * Ability to test recent code changes (and also encounter recently added bugs)
-* Ability to use community-provided code patches that enhances some game aspects
+* Ability to use community-provided code patches that enhance some game aspects (like [this one](http://greatshift.111mb.de/psextended))
 * Ability to test your own patches before committing them to the project team
 
 # Using scripts
