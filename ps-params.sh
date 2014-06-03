@@ -3,8 +3,6 @@
 # path to the development directory
 PS_BUILD="$HOME/build/planeshift"
 
-# PS_BUILD_QUOTED=$(echo "$PS_BUILD" | sed -r 's/ /\\ /g')
-
 # path to installed PS release
 PS_RELEASE="$HOME/opt/PlaneShift"
 
