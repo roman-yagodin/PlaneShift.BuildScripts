@@ -3,6 +3,8 @@
 # path to the development directory
 PS_BUILD="$HOME/build/planeshift"
 
+# PS_BUILD_QUOTED=$(echo "$PS_BUILD" | sed -r 's/ /\\ /g')
+
 # path to installed PS release
 PS_RELEASE="$HOME/opt/PlaneShift"
 
@@ -12,11 +14,12 @@ CAL3D_REVISION=507
 # CrystalSpace 3D revision number
 CS_REVISION=38934
 
-# "Old" gcc version - for building CS, leave 4.6
-GCC_OLD=4.6
+# PlaneShift revision number (empty = trunk)
+PS_REVISION=""
 
-# "New" gcc version - your system's latest gcc version 
-GCC_NEW=4.8
+# Number of concurrent build jobs
+CONCURRENT_JOBS=3
+
 
 
 

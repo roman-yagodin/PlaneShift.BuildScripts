@@ -14,9 +14,13 @@ PlaneShift team provides [static client for Linux](http://www.planeshift.it/Down
 
 # Using scripts
 
+## General notice
+
+If you encounter problems on any step, you should fix them before going further.
+
 ## Download and configure
 
-Download build scripts [release package](https://github.com/roman-yagodin/PlaneShift.BuildScripts/releases) and unpack it. Then open `ps-params.sh` and modify environment variables by your preference:
+Download build scripts [release package](https://github.com/roman-yagodin/PlaneShift.BuildScripts/releases) and unpack it. Check that all *.sh files have executable permission. Then open `ps-params.sh` in the text editor and modify environment variables by your preference:
 
 * First of, you should set PS_BUILD variable to development directory - there all sources will be downloaded, 
 compiled and installed locally. 
@@ -24,9 +28,9 @@ compiled and installed locally.
 * Build scripts assume that you have latest PS client release installed to get art and some data from install,
 so second important thing is to specify this location in PS_RELEASE variable. 
 
-* Third important variable is GCC_NEW, which must be set to newest gcc/g++ (GNU C/C++ compiler) version installed on your machine.
+Make sure that PS_BUILD path doesn't contains spaces - Cal3D, CrystalSpace, PlaneShift are fine with this, but Bullet won't install.
 
-```Shell
+```shell
 # path to the development directory
 PS_BUILD="$HOME/build/planeshift"
 
@@ -39,63 +43,69 @@ CAL3D_REVISION=507
 # CrystalSpace 3D revision number
 CS_REVISION=38934
 
-# "Old" gcc version - for building CS, leave 4.6
-GCC_OLD=4.6
+# PlaneShift revision number (empty = trunk)
+PS_REVISION=""
 
-# "New" gcc version - your system's latest gcc version 
-GCC_NEW=4.8
+# Number of concurrent build jobs
+CONCURRENT_JOBS=3
 ```
+## Optimistic way
 
-## Prepare for build
+Just run `./ps-optimistic.sh` and cross the fingers :)
 
-Run `./ps-prereq-lmde.sh` to install required packages, get source code from repositories and setup build environment.
-This one takes some time and traffic. Script asks for superuser privilegies to install required packages and setup gcc alternative.
+## Less optimistic way
+
+Run following scripts to install required packages, get source code from repositories and setup build environment.
+This takes some time and traffic, so be patient. Script `./ps-prereq-lmde.sh` asks for superuser privilegies to install packages.
+
+* `./ps-prereq-lmde.sh` 
+* `./ps-update-all.sh`
 
 ## Build required libraries
 
-Run following script to build Bullet, Cal3D and then CrystalSpace 3D:
+Run following script to build Bullet and Cal3D:
 
-1. `./ps-build-bullet.sh`
-2. `./ps-build-cal3d.sh [-u]`
-3. `./ps-build-cs.sh [-u]`
+* `./ps-build-bullet.sh`
+* `./ps-build-cal3d.sh [-u]`
 
 If optional `-u` switch specified, script updates source from repository, discarding all changes made in local files. 
-If you encounter problems on any step, you should fix them before going further. 
 
-Building CS require gcc 4.6, so `ps-build-cs.sh` script asks for superuser privilegies to switch gcc alternatives.
+Then you should build CrystalSpace 3D engine:
+
+* `./ps-build-cs.sh [-u]`
+
+Crystal Space 3D have known build problems with gcc 4.7 (but not gcc 4.6 or 4.8). So if you are using gcc 4.7, then script installs gcc 4.6 
+and use it for building CS (this will reqiure superuser privileges).
 
 ## Build client
 
 To build client, run `./ps-build-client.sh [-u]`
 
-This script disables breakpad in source code before build.
-
 ## Setup client
 
-Run ./ps-setup-client.sh
+Run `./ps-setup-client.sh`
 
-This makes art directory with hardlinks to release art, copies servers.xml and emotes.xml from release data, 
-points to CS plugins in vfs.cfg, creates start script in PS_BUILD directory 
-and makes desktop shortcut in `~/.local/share/applications` to run the client.
+This makes `art` directory with hardlinks to release art, copies `servers.xml` and `emotes.xml` from release data, 
+creates startup script in PS_BUILD directory and makes desktop shortcut in `~/.local/share/applications` to run the client.
 
 ## Run game
 
 Run `./psclient.sh` or use shortcut named "PlaneShift (compiled)" in the applications menu.
 
-# Upgrade client to newest version
+# Upgrade client to latest version
 
 Just run: 
 
-```Shell
+```shell
 ./ps-build-client.sh -u 
 ./ps-setup-client.sh
 ```
 
 # TODO
 
-* Support appliyng patches from specified folder;
-* Support building and setting up both client and server;
-* Add support for various Linux distributions.
+* Support appliyng patches from specified folder
+* Support building and setting up both client and server
+* Add support for various Linux distributions
 
 # Contributions
 

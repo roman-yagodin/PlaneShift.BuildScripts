@@ -4,13 +4,13 @@ cd $(dirname $0)
 source ps-params.sh
 
 # clean
-cd $PS_BUILD/bullet
+cd "$PS_BUILD/bullet"
 make uninstall
 make clean
 
 # build
-cd $PS_BUILD/bullet
+cd "$PS_BUILD/bullet"
 ./autogen.sh
-./configure --prefix=$PS_BUILD/bullet
-make -j3 
+./configure --prefix="$PS_BUILD/bullet"
+make -j$CONCURRENT_JOBS
 make install
