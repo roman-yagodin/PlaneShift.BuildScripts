@@ -28,7 +28,7 @@ compiled and installed locally.
 * Build scripts assume that you have latest PS client release installed to get art and some data from install,
 so second important thing is to specify this location in PS_RELEASE variable. 
 
-Make sure that PS_BUILD path doesn't contains spaces - Cal3D, CrystalSpace, PlaneShift are fine with this, but Bullet won't install.
+Make sure that PS_BUILD path doesn't contains spaces - at least Bullet and Cal3D won't install to a prefix with spaces in the path.
 
 ```shell
 # path to the development directory
