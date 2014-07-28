@@ -10,6 +10,9 @@ cp -fal "$PS_RELEASE/art" "$PS_BUILD/planeshift"
 # NOTE: if you modify files in $PS_BUILD/planeshift/art, 
 # they do *not* change in $PS_RELEASE/art as they copied on write 
 
+# update data directory from release, leaving existing files as is
+cp -frn "$PS_RELEASE/data" "$PS_BUILD/planeshift"
+
 # copy list of servers from release
 cp -f "$PS_RELEASE/data/servers.xml" "$PS_BUILD/planeshift/data"
 
