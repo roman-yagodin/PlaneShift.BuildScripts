@@ -14,7 +14,7 @@ then
 	
 	# apply rev. 39918 changes to CS:
 	# http://sourceforge.net/p/crystal/code/39918/tree//CS/trunk/include/csutil/csuctransform.h?diff=50bef7385fcbc92b9bac5b34:39917
-	sed -i 's/if ((srcSize == 0) || (source == 0))/if (source == 0)/' ./cs/include/csutil/csuctransform.h
+	sed -i 's/if ((srcSize == 0) || (source == 0))/if (source == 0)/' ./include/csutil/csuctransform.h
 fi
 
 # point to Cal3D and Bullet
