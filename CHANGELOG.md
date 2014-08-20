@@ -1,3 +1,7 @@
+# Version 0.6.1-3
+
+* Update data directory from the release to fix effects, etc.
+
 # Version 0.6.1-2
 
 * Added PS_REVISION variable to ps-params.sh (leave empty to use trunk)
