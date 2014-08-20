@@ -1,5 +1,6 @@
 # Version 0.6.1-3
 
+* Use new CS revision 39798 by default + 39918 patch. 
 * Update data directory from the release to fix effects, etc.
 
 # Version 0.6.1-2
