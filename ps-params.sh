@@ -10,7 +10,9 @@ PS_RELEASE="$HOME/opt/PlaneShift"
 CAL3D_REVISION=507
 
 # CrystalSpace 3D revision number
-CS_REVISION=38934
+CS_REVISION=39798
+# Note: "manually apply 39918 as patch to fix startup crashes" part
+# in latest compiling guide is unclear - do we really need this?
 
 # PlaneShift revision number (empty = trunk)
 PS_REVISION=""
