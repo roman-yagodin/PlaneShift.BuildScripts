@@ -37,6 +37,9 @@ sed -i 's/AM_USE_UNITTESTCPP/#\ AM_USE_UNITTESTCPP/' ./cal3d/configure.in
 # disable breakpad in PlaneShift client
 sed -i 's/#define\ USE_BREAKPAD/\/\/ #define\ USE_BREAKPAD/' ./planeshift/src/client/crashreport.cpp
 
+# Apply rev. 39918 changes to CS
+sed -i 's/if ((srcSize == 0) || (source == 0))/if (source == 0)/' ./cs/include/csutil/csuctransform.h
+
 # point to CS plugins in vfs.cfg
 CS_CONFIG=$(echo "${PS_BUILD:${#HOME}}/cs/data/config/plugins/" | sed -r 's/\//\\\$\\\//g')
 sed -i "s/VFS.Mount.config = \$@data\$\/config-plugins\$\//\0,$CS_CONFIG/" "$PS_BUILD/planeshift/vfs.cfg"
