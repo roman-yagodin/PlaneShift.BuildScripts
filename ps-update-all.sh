@@ -37,7 +37,8 @@ sed -i 's/AM_USE_UNITTESTCPP/#\ AM_USE_UNITTESTCPP/' ./cal3d/configure.in
 # disable breakpad in PlaneShift client
 sed -i 's/#define\ USE_BREAKPAD/\/\/ #define\ USE_BREAKPAD/' ./planeshift/src/client/crashreport.cpp
 
-# apply rev. 39918 changes to CS
+# apply rev. 39918 changes to CS:
+# http://sourceforge.net/p/crystal/code/39918/tree//CS/trunk/include/csutil/csuctransform.h?diff=50bef7385fcbc92b9bac5b34:39917
 sed -i 's/if ((srcSize == 0) || (source == 0))/if (source == 0)/' ./cs/include/csutil/csuctransform.h
 
 # point to CS plugins in vfs.cfg
