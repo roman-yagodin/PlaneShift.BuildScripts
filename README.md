@@ -4,6 +4,8 @@ This is collection of scripts to automate building process of [PlaneShift](http:
 
 It is highly possible that my scripts won't work for you - in this case check [official compiling guide](https://svn.code.sf.net/p/planeshift/code/trunk/docs/compiling.html), provided by PlaneShift development team.
 
+**Important note:** Due to CrystalSpace 3D build bug (see #4), *PlaneShift.BuildScripts* are not working on Debian Jessie (and its derivatives, such as LMDE 2). Hope it will be resolved soon.
+
 # Why build?
 
 PlaneShift team provides [static client for Linux](http://www.planeshift.it/Download), both x86 and x86_64 platforms, but making self-made client provides some advantages:
