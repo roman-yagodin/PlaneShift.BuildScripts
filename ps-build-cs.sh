@@ -42,7 +42,10 @@ fi
 
 # build
 cd "$PS_BUILD/cs"
-./configure --enable-make-emulation="no" --without-java --without-perl --without-python --without-3ds --with-cal3d="$PS_BUILD/cal3d" --with-bullet="$PS_BUILD/bullet" --prefix="$PS_BUILD/cs"
+./configure --enable-make-emulation="no" --without-wx --without-java --without-perl --without-python --without-3ds --with-cal3d="$PS_BUILD/cal3d" --with-bullet="$PS_BUILD/bullet" --prefix="$PS_BUILD/cs"
+# --enable-make-emulation="no": use only Jamfiles (fix configuration)
+# --without-wx: build w/o wxWidgets (build failed as wxWidgets upgraded to 3.0 in Debian Jessie)
+
 jam -j$CONCURRENT_JOBS -aq libs plugins cs-config # walktest
 
 if [ "$GCC_VERSION" = "4.7" ]
