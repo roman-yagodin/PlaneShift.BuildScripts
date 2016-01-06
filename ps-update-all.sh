@@ -25,9 +25,9 @@ svn update
 # get PlaneShift
 if [ -z "$PS_REVISION" ]
 then
-	svn co https://planeshift.svn.sourceforge.net/svnroot/planeshift/trunk planeshift
+	svn co https://svn.code.sf.net/p/planeshift/code/trunk planeshift
 else
-	svn co -r $PS_REVISION https://planeshift.svn.sourceforge.net/svnroot/planeshift/trunk planeshift
+	svn co -r $PS_REVISION https://svn.code.sf.net/p/planeshift/code/trunk planeshift
 fi
 svn update
 
@@ -44,4 +44,3 @@ sed -i 's/if ((srcSize == 0) || (source == 0))/if (source == 0)/' ./cs/include/c
 # point to CS plugins in vfs.cfg
 CS_CONFIG=$(echo "${PS_BUILD:${#HOME}}/cs/data/config/plugins/" | sed -r 's/\//\\\$\\\//g')
 sed -i "s/VFS.Mount.config = \$@data\$\/config-plugins\$\//\0,$CS_CONFIG/" "$PS_BUILD/planeshift/vfs.cfg"
-
