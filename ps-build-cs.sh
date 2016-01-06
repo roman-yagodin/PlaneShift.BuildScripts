@@ -11,7 +11,7 @@ jam clean
 if [ "$1" = "-u" ]
 then
 	svn update -r $CS_REVISION
-	
+
 	# apply rev. 39918 changes to CS:
 	# http://sourceforge.net/p/crystal/code/39918/tree//CS/trunk/include/csutil/csuctransform.h?diff=50bef7385fcbc92b9bac5b34:39917
 	sed -i 's/if ((srcSize == 0) || (source == 0))/if (source == 0)/' ./include/csutil/csuctransform.h
@@ -35,25 +35,23 @@ then
 	sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.8 60 --slave /usr/bin/g++ g++ /usr/bin/g++-4.8
 
 	# use gcc 4.6 for CrystalSpace 3D
-	echo '1' > ~choice.txt 
+	echo '1' > ~choice.txt
 	sudo update-alternatives --config gcc < ~choice.txt
 	rm -f ~choice.txt
 fi
 
 # build
 cd "$PS_BUILD/cs"
-./configure --without-java --without-perl --without-python --without-3ds --with-cal3d="$PS_BUILD/cal3d" --with-bullet="$PS_BUILD/bullet"
+./configure --enable-make-emulation="no" --without-java --without-perl --without-python --without-3ds --with-cal3d="$PS_BUILD/cal3d" --with-bullet="$PS_BUILD/bullet" --prefix="$PS_BUILD/cs"
 jam -j$CONCURRENT_JOBS -aq libs plugins cs-config # walktest
 
 if [ "$GCC_VERSION" = "4.7" ]
 then
 	# use default (new) gcc for the rest
-	echo '0' > ~choice.txt 
+	echo '0' > ~choice.txt
 	sudo update-alternatives --config gcc < ~choice.txt
 	rm -f ~choice.txt
-	
+
 	# remove gcc alternatives
 	sudo update-alternatives --remove-all gcc
 fi
-
-
