@@ -6,6 +6,9 @@ source ps-params.sh
 # install packages
 ./ps-prereq-lmde.sh
 
+# upgrade existings SVN repos to match new SVN version
+./ps-upgrade-svn.sh
+
 # get sources
 ./ps-update-all.sh
 
@@ -20,4 +23,3 @@ source ps-params.sh
 
 # run client
 $PS_BUILD/psclient.sh
-
