@@ -3,8 +3,8 @@
 cd $(dirname $0)
 source ps-params.sh
 
-# install packages
-./ps-prereq-lmde.sh
+# install required packages
+./ps-prereq-jessie.sh
 
 # upgrade existings SVN repos to match new SVN version
 ./ps-upgrade-svn.sh
