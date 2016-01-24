@@ -13,7 +13,7 @@ CAL3D_REVISION=507
 CS_REVISION=39798
 
 # PlaneShift revision number (empty = trunk)
-PS_REVISION=""
+PS_REVISION="9677" # v0.6.3
 
 # Number of concurrent build jobs
 CONCURRENT_JOBS=3
