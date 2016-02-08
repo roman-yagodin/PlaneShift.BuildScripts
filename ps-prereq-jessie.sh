@@ -14,7 +14,7 @@ sudo apt-get --assume-yes install \
     subversion \
     libmng-dev \
     libpng12-dev \
-    libjpeg8-dev \
+    libjpeg-dev \
     x11proto-gl-dev \
     libogg-dev \
     libvorbis-dev \
